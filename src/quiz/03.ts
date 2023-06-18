@@ -1,6 +1,6 @@
 // Q: 文字列の長さを "short", "medium", "long" の３種類に判定する関数の返り値の型を定義してください。
 // ヒント: literal types と union types を使うと実現できます。
-type StringLength = /* 定義を書く */;
+type StringLength = "short" | "medium" | "long";
 const getStringLength = (s: string): StringLength => {
   if (s.length === 0) {
     // @ts-expect-error getStringLength should not return any invalid values.
@@ -20,7 +20,7 @@ const getStringLength = (s: string): StringLength => {
 // ヒント: Generics を使うと実現できます。
 
 // 以下の行を書き換えて型を与えてください。
-const includes = (array, value) => {
+const includes = <T>(array: Array<T>, value: T): boolean => {
   // 変更箇所はこの上の行まで
   for (const v of array) {
     if (v === value) {
@@ -51,7 +51,7 @@ type PasswordRequirementResult =
   | "missingSmallLetter"
   | "missingCapitalLetter";
 
-const checkPasswordRequirement = (/* ココを定義してください */): PasswordRequirementResult => {
+const checkPasswordRequirement = (password: string, option?: PasswordRequirementOption): PasswordRequirementResult => {
   if (option?.requireNumbers) {
     if (!/\d/.test(password)) {
       return "missingNumber";
