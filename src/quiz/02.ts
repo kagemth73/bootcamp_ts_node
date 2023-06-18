@@ -22,7 +22,7 @@ const totalError1: number = sumAll(["a", "b", "c"]);
 const totalError2: number = sumAll(1);
 
 // Q: number が入る配列, Array1 を定義してください
-type Array1 = Array<number>;
+type Array1 = number[];
 const array1_1: Array1 = [1];
 const array1_2: Array1 = [1, 2, 3, 4, 5];
 // @ts-expect-error string is not allowed for the `Array1`.
