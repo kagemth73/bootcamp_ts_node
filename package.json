@@ -8,5 +8,12 @@
     "eslint-plugin-node": "^11.1.0",
     "typescript": "5.0.2"
   },
-  "license": "SEE LICENSE IN LICENSE"
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "build": "tsc",
+    "format:fix": "npx prettier --write 'src/**/*.{js,ts}'"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
 }
