@@ -27,8 +27,9 @@ server.on("request", async (req, res) => {
   fs.readFile(filePath, (error, content) => {
     if (error) {
       if (error.code == "ENOENT") {
-        res.writeHead(404);
-        console.log("404 NOT FOUND");
+        console.error(error);
+        res.writeHead(404, {"Content-Type": "text-plain"});
+        res.write("404 NOT FOUND");
         res.end();
       } else {
         res.writeHead(500);
@@ -36,6 +37,7 @@ server.on("request", async (req, res) => {
       }
     } else {
       res.writeHead(200, { "Content-Type": contentType });
+      // console.log(content);
       res.end(content, "utf-8");
     }
   });
